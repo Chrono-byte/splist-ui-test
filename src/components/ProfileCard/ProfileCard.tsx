@@ -16,7 +16,6 @@ export default function ProfileCard(user: { name: string; username: string, avat
       style={{
         background: "rgba(10, 8, 0, 0.70)",
         color: "#f0f0f0",
-        // minWidth: "",
         borderRadius: "0.8rem",
         border: "6.45px solid #2b2b2b",
         padding: "25px",
