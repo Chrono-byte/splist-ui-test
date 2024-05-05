@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { PropsWithChildren, ReactElement } from 'react';
 
 export function LayoutContainer({ children }: PropsWithChildren) {
@@ -19,8 +20,12 @@ export function LayoutHeader({ title, icon, children }: LayoutHeaderProps) {
     );
 }
 
-export function LayoutMain({ children }: PropsWithChildren) {
-    return <main className="grid place-items-center w-full h-screen bg-slate-700">{children}</main>;
+export function LayoutMain({ children, className, ...props }: PropsWithChildren<JSX.IntrinsicElements['main']>) {
+    return (
+        <main className={classNames('w-full h-screen bg-slate-700', className)} {...props}>
+            {children}
+        </main>
+    );
 }
 
 export function LayoutFooter({ children }: PropsWithChildren) {
@@ -29,4 +34,12 @@ export function LayoutFooter({ children }: PropsWithChildren) {
 
 export function LayoutSidebar({ children }: PropsWithChildren) {
     return <nav className="bg-slate-800 w-56 flex flex-col flex-shrink-0">{children}</nav>;
+}
+
+export function LayoutSidebarHeader({ children }: PropsWithChildren) {
+    return (
+        <header className="h-12 flex items-center p-4 border-b-slate-900 border-solid border-b-2 flex-shrink-0">
+            {children}
+        </header>
+    );
 }

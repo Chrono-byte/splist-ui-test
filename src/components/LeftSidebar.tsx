@@ -1,28 +1,28 @@
 import classNames from 'classnames';
 import { PropsWithChildren } from 'react';
-import { LayoutSidebar } from './Layout';
+import { LayoutSidebar, LayoutSidebarHeader } from './Layout';
 
-interface ThreadSidebarProps extends PropsWithChildren {
+interface LeftSidebarProps extends PropsWithChildren {
     title: string;
 }
 
-export function ThreadSidebar({ children, title }: ThreadSidebarProps) {
+export function LeftSidebar({ children, title }: LeftSidebarProps) {
     return (
         <LayoutSidebar>
-            <header className="h-12 flex items-center p-4 border-b-slate-900 border-solid border-b-2 flex-shrink-0">
+            <LayoutSidebarHeader>
                 <h1 className="font-bold">{title}</h1>
-            </header>
+            </LayoutSidebarHeader>
             <ul className="p-1.5 text-stone-300">{children}</ul>
         </LayoutSidebar>
     );
 }
 
-interface ThreadSidebarItemProps extends PropsWithChildren<JSX.IntrinsicElements['li']> {
+interface LeftSidebarItemProps extends PropsWithChildren<JSX.IntrinsicElements['li']> {
     active: boolean;
     icon: React.ReactElement;
 }
 
-export function ThreadSidebarItem({ children, active, icon }: ThreadSidebarItemProps) {
+export function LeftSidebarItem({ children, active, icon }: LeftSidebarItemProps) {
     return (
         <li
             className={classNames(
@@ -36,6 +36,6 @@ export function ThreadSidebarItem({ children, active, icon }: ThreadSidebarItemP
     );
 }
 
-export function ThreadSidebarHr() {
+export function LeftSidebarHr() {
     return <hr className="border-stone-400 mt-2 mb-2" />;
 }
